@@ -9,11 +9,6 @@ withCredentials(pipelineVariables.call()) {
 //withCredentials([[dockerUserName: 'pkuma343'], [dockerPassword: 'Ponkmonk_138202']]) {
 stage('Maven Tests') {
 bat 'mvn clean compile'
-/*try {
-bat 'mvn clean test'; junit '**/surefire-reports/*Test.xml'
-} catch(err) {
-junit '**/surefire-reports/*Test.xml'//; if(currentBuild.result == 'UNSTABLE') { currentBuild.result = 'FAILURE' }; throw err
-}*/
 }
 stage('Sonar Scan') {
 //bat 'mvn sonar:sonar -Dsonar.host.url=http://localhost:9000 -Dsonar.branch.name=env.BRANCH_NAME'
