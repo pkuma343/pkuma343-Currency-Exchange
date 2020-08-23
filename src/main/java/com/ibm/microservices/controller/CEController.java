@@ -1,7 +1,6 @@
 package com.ibm.microservices.controller;
 
 import com.ibm.microservices.bean.MinMaxValues;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ public class CEController {
     private static final Logger LOGGER = LoggerFactory.getLogger(CEController.class);
     @Autowired
     private MinMaxValues values;
-    @HystrixCommand(fallbackMethod = "getExchangeMultipleFallBack")
+    //@HystrixCommand(fallbackMethod = "getExchangeMultipleFallBack")
     @GetMapping("/currency-exchange/{from}/{to}")
     public int getExchangeMultiple(@PathVariable String from, @PathVariable String to) {
         int value = values.getMin();
@@ -23,7 +22,7 @@ public class CEController {
         //throw new RuntimeException("Not available");
     }
 
-    public int getExchangeMultipleFallBack(@PathVariable String from, @PathVariable String to) {
-        return 100;
-    }
+    //public int getExchangeMultipleFallBack(@PathVariable String from, @PathVariable String to) {
+     //   return 100;
+   // }
 }
