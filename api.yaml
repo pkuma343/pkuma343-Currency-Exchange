@@ -81,4 +81,4 @@ items:
         app: currency-exchange
         deploymentconfig: apidc1
       sessionAffinity: None
-      type: LoadBalancer
+      type: ClusterIP
